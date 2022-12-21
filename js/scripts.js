@@ -61,9 +61,10 @@ async function loadDatabase() {
 }
 
 document.addEventListener("DOMContentLoaded", function (event) {
-  const divListagem = document.getElementById("divListagem");
-  const divCadastro = document.getElementById("divCadastro");
-  divCadastro.style.display = "none";
+  const alertListagem = document.querySelector("#alertListagem");
+  alertListagem.style.display = "none";
+  const alertCadastro = document.querySelector("#alertCadastro");
+  alertCadastro.style.display = "none";
 
   loadDatabase()
     .then((clientes) => updateTable(clientes))
@@ -87,7 +88,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
     updateDatabase(data)
       .then((result) => {
         const cliente = result.ops[0];
-        alert(`Cliente ${cliente.nome} cadastrado com sucesso!`);
+        alertListagem.innerHTML`<strong>Sucesso!</strong> Cliente ${cliente.nome} cadastrado com sucesso!`;
+        alertListagem.style.display = "block";
+        setTimeout(() => {
+          alertListagem.style.display = "none";
+        }, 2000);
         updateTable(cliente);
       })
       .catch((error) => alert(`Ocorreu um erro: ${error}`));
