@@ -1,3 +1,12 @@
+function exibirMensagem(selector, html) {
+  const div = document.querySelector(selector);
+  div.innerHTML = html;
+  div.style.display = "block";
+  setTimeout(() => {
+    div.style.display = "none";
+  }, 2000);
+}
+
 function updateTable(clientes) {
   let linha = "";
   if (!Array.isArray(clientes)) clientes = [clientes];
@@ -84,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
   const frmCadastro = document.getElementById("frmCadastro");
   frmCadastro.onsubmit = (evt) => {
-    var data = new FormData(frmCadastro);
+    const data = new FormData(frmCadastro);
     updateDatabase(data)
       .then((result) => {
         const cliente = result.ops[0];
