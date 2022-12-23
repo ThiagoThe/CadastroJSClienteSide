@@ -93,6 +93,18 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
   const frmCadastro = document.getElementById("frmCadastro");
   frmCadastro.onsubmit = (evt) => {
+    evt.preventDefault();
+
+    if (!document.querySelector('input[name="nome"]').value) {
+      alertCadastro.innerHTML =
+        "<strong>Erro!</strong> O campo nome é obrigatório!";
+      alertCadastro.style.display = "block";
+      setTimeout(() => {
+        alertCadastro.style.display = "none";
+      }, 3000);
+      return false;
+    }
+
     const data = new FormData(frmCadastro);
     updateDatabase(data)
       .then((result) => {
@@ -105,7 +117,5 @@ document.addEventListener("DOMContentLoaded", function (event) {
         updateTable(cliente);
       })
       .catch((error) => alert(`Ocorreu um erro: ${error}`));
-
-    evt.preventDefault();
   };
 });
