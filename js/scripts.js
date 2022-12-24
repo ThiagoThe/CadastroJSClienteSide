@@ -11,7 +11,7 @@ function updateTable(clientes) {
   let linha = "";
   if (!Array.isArray(clientes)) clientes = [clientes];
   for (let cliente of clientes)
-    linha += `<tr><td>${cliente.nome}</td><td>${cliente.nascimento}</td><td>${cliente.cidade}</td><td>${cliente.uf}</td><td><input type="button" value="X" data-id="${cliente._id}" /></td></tr>`;
+    linha += `<tr><td>${cliente.nome}</td><td>${cliente.nascimento}</td><td>${cliente.cidade}</td><td>${cliente.uf}</td><td><input type="button" class="btn btn-danger" value="Excluir" data-id="${cliente._id}" /></td></tr>`;
 
   //se tem apenas uma TD, é a default
   const tbody = document.querySelector("table > tbody");

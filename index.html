@@ -25,26 +25,28 @@
         <div id="alertCadastro" class="alert alert danger">
           <strong>Erro!</strong> Nome é obrigatório!
         </div>
-        <form id="frmCadastro" action="">
-          <p>
+        <form id="frmCadastro" action="" method="" role="form">
+          <div class="form-group">
             <label for="nome"
-              >Nome Completo: <input type="text" name="nome"
+              >Nome Completo:
+              <input type="text" name="nome" class="form-control"
             /></label>
-          </p>
-          <p>
+          </div>
+          <div class="form-group">
             <label for="nascimento">
-              Data de Nascimento: <input type="date" name="nascimento" />
+              Data de Nascimento:
+              <input type="date" name="nascimento" class="form-control" />
             </label>
-          </p>
-          <p>
+          </div>
+          <div class="form-group">
             <label for="cidade"
-              >Cidade: <input type="text" name="cidade"
+              >Cidade: <input type="text" name="cidade" class="form-control"
             /></label>
-          </p>
-          <p>
+          </div>
+          <div class="form-group">
             <label for=""
               >UF:
-              <select name="uf" id="uf">
+              <select name="uf" id="uf" class="form-control">
                 <option value="SC">SC</option>
                 <option value="RS">RS</option>
                 <option value="PR">PR</option>
@@ -52,13 +54,19 @@
                 <option value="MG">MG</option>
                 <option value="RJ">RJ</option>
                 <option value="OUTRO">OUTRO</option>
-              </select></label
-            >
-          </p>
-
-          <input type="button" id="btnListar" value="Listar" />
-          |
-          <input type="submit" value="Salvar" class="btn btn-primary" />
+              </select>
+              </label>
+          </div></br>
+          <div class="form-group">
+            <input
+              type="button"
+              id="btnListar"
+              value="Listar"
+              class="btn btn-info"
+            />
+            |
+            <input type="submit" value="Salvar" class="btn btn-success" />
+          </div>
         </form>
       </div>
       <div id="divListagem">
@@ -87,7 +95,12 @@
           <tfoot>
             <tr>
               <td>
-                <input type="button" id="btnCadastrar" value="Cadastrar" />
+                <input
+                  type="button"
+                  id="btnCadastrar"
+                  value="Cadastrar"
+                  class="btn btn-primary"
+                />
               </td>
             </tr>
           </tfoot>
